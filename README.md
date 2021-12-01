@@ -1126,6 +1126,74 @@ for i, line in enumerate(lines):
 4	33	Jogging	49106332290000	-1.1849703	12.108489	7.205164
 ```python
 data.shape
-data.shape
 (128904, 6)
 ```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 128904 entries, 0 to 128903
+Data columns (total 6 columns):
+ #   Column    Non-Null Count   Dtype 
+---  ------    --------------   ----- 
+ 0   user      128904 non-null  object
+ 1   activity  128904 non-null  object
+ 2   time      128904 non-null  object
+ 3   x         128904 non-null  object
+ 4   y         128904 non-null  object
+ 5   z         128904 non-null  object
+dtypes: object(6)
+memory usage: 5.9+ MB
+```python
+data.isnull().sum()
+```
+user        0
+activity    0
+time        0
+x           0
+y           0
+z           0
+dtype: int64
+```python
+data['activity'].value_counts()
+```
+Walking       56476
+Jogging       43898
+Downstairs    14836
+Upstairs      13694
+Name: activity, dtype: int64
+```python
+data['x'] = data['x'].astype('float')
+data['y'] = data['y'].astype('float')
+data['z'] = data['z'].astype('float')
+```
+```python
+data.info()
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 128904 entries, 0 to 128903
+Data columns (total 6 columns):
+ #   Column    Non-Null Count   Dtype  
+---  ------    --------------   -----  
+ 0   user      128904 non-null  object 
+ 1   activity  128904 non-null  object 
+ 2   time      128904 non-null  object 
+ 3   x         128904 non-null  float64
+ 4   y         128904 non-null  float64
+ 5   z         128904 non-null  float64
+dtypes: float64(3), object(3)
+memory usage: 5.9+ MB
+```python
+Fs = 20
+```
+```python
+activities = data['activity'].value_counts().index
+```
+```python
+Index(['Walking', 'Jogging', 'Upstairs', 'Downstairs', 'Sitting', 'Standing'], dtype='object')
+```
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-22-982fe0910f79> in <module>()
+----> 1 Index(['Walking', 'Jogging', 'Upstairs', 'Downstairs', 'Sitting', 'Standing'], dtype='object')
+
+NameError: name 'Index' is not defined
+
+   
