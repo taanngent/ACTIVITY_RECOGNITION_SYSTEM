@@ -5,3 +5,11 @@ This model tells whether a person is jogging, running, going upstairs or downsta
 
 DATASET LINK-http://www.cis.fordham.edu/wisdm/dataset.php
 
+```python
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Flatten, Dense, Dropout, BatchNormalization
+from tensorflow.keras.layers import Conv2D, MaxPool2D
+from tensorflow.keras.optimizers import Adam
+print(tf.__version__)
+```
